@@ -1,0 +1,20 @@
+﻿<Window x:Class="StatusControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StatusControl"
+        mc:Ignorable="d"
+        Title="Status Control" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="84"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Source="Resources/LogoTNS.jpg" HorizontalAlignment="Left" VerticalAlignment="Top" Height="84"/>
+        <TextBlock Text="Контроль состояния оборудования" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="25" Margin="84,20,0,0"/>
+        <ComboBox x:Name="BackboneNetworksComboBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="-500,20,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="BackboneNetworksComboBox_SelectionChanged" Text="Оборудование магистральных сетей" IsEditable="True" IsReadOnly="True" Cursor="Arrow"/>
+        <ComboBox x:Name="AccessNetworksComboBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="AccessNetworksComboBox_SelectionChanged" Text="Оборудование сетей доступа" IsEditable="True" IsReadOnly="True" Cursor="Arrow"/>
+        <ComboBox x:Name="SubseQuipmentComboBox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="500,20,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="SubseQuipmentComboBox_SelectionChanged" Text="Оборудование обонента" IsEditable="True" IsReadOnly="True" Cursor="Arrow"/>
+    </Grid>
+</Window>

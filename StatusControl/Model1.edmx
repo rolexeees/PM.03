@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TeleconNevaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TeleconNeva.dbo.Access_Networks" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Access_Networks">
+          <Key>
+            <PropertyRef Name="Серийный номер" />
+          </Key>
+          <Property Name="Серийный номер" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+          <Property Name="Количество портов " Type="float" />
+          <Property Name="Стандарт передачи данных " Type="nvarchar" MaxLength="255" />
+          <Property Name="Частота" Type="float" />
+          <Property Name="Интерфейсы" Type="nvarchar" MaxLength="255" />
+          <Property Name="Скорость передачи данных" Type="nvarchar" MaxLength="255" />
+          <Property Name="Место расположения" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Highway">
+          <Key>
+            <PropertyRef Name="Серийный номер" />
+          </Key>
+          <Property Name="Серийный номер" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name=" Частота" Type="float" />
+          <Property Name=" Коэффициент затухания" Type="nvarchar" MaxLength="255" />
+          <Property Name=" Технология передачи данных" Type="nvarchar" MaxLength="255" />
+          <Property Name=" Расположение" Type="nvarchar" MaxLength="255" />
+          <Property Name="F7" Type="nvarchar" MaxLength="255" />
+          <Property Name="F8" Type="nvarchar" MaxLength="255" />
+          <Property Name="F9" Type="nvarchar" MaxLength="255" />
+          <Property Name="F10" Type="nvarchar" MaxLength="255" />
+          <Property Name="F11" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TeleconNeva.dbo.Suds_Equipment" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Suds_Equipment">
+          <Key>
+            <PropertyRef Name="Серийный номер" />
+          </Key>
+          <Property Name="Серийный номер" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+          <Property Name="Порты" Type="nvarchar" MaxLength="255" />
+          <Property Name="Стандарт передачи" Type="nvarchar" MaxLength="255" />
+          <Property Name="Скорость" Type="nvarchar" MaxLength="255" />
+          <Property Name="Адрес абонента" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="Хранилище TeleconNevaModelContainer">
+          <EntitySet Name="Highway" EntityType="Self.Highway" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Access_Networks" EntityType="Self.Access_Networks" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Access_Networks].[Серийный номер] AS [Серийный номер], 
+[Access_Networks].[Наименование] AS [Наименование], 
+[Access_Networks].[Количество портов ] AS [Количество портов ], 
+[Access_Networks].[Стандарт передачи данных ] AS [Стандарт передачи данных ], 
+[Access_Networks].[Частота] AS [Частота], 
+[Access_Networks].[Интерфейсы] AS [Интерфейсы], 
+[Access_Networks].[Скорость передачи данных] AS [Скорость передачи данных], 
+[Access_Networks].[Место расположения] AS [Место расположения]
+FROM [dbo].[Access_Networks] AS [Access_Networks]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Suds_Equipment" EntityType="Self.Suds_Equipment" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Suds_Equipment].[Серийный номер] AS [Серийный номер], 
+[Suds_Equipment].[Наименование] AS [Наименование], 
+[Suds_Equipment].[Порты] AS [Порты], 
+[Suds_Equipment].[Стандарт передачи] AS [Стандарт передачи], 
+[Suds_Equipment].[Скорость] AS [Скорость], 
+[Suds_Equipment].[Адрес абонента] AS [Адрес абонента]
+FROM [dbo].[Suds_Equipment] AS [Suds_Equipment]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TeleconNevaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Highway">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="C_Частота" Type="Double" />
+          <Property Name="C_Коэффициент_затухания" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="C_Технология_передачи_данных" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="C_Расположение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Access_Networks">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Количество_портов_" Type="Double" />
+          <Property Name="Стандарт_передачи_данных_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Частота" Type="Double" />
+          <Property Name="Интерфейсы" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Скорость_передачи_данных" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Место_расположения" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Suds_Equipment">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Порты" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Стандарт_передачи" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Скорость" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Адрес_абонента" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="TeleconNevaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Highways" EntityType="Self.Highway" />
+          <EntitySet Name="Access_Networks" EntityType="Self.Access_Networks" />
+          <EntitySet Name="Suds_Equipment" EntityType="Self.Suds_Equipment" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TeleconNevaModelContainer" CdmEntityContainer="TeleconNevaEntities">
+          <EntitySetMapping Name="Highways">
+            <EntityTypeMapping TypeName="TeleconNevaModel.Highway">
+              <MappingFragment StoreEntitySet="Highway">
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный номер" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="C_Частота" ColumnName=" Частота" />
+                <ScalarProperty Name="C_Коэффициент_затухания" ColumnName=" Коэффициент затухания" />
+                <ScalarProperty Name="C_Технология_передачи_данных" ColumnName=" Технология передачи данных" />
+                <ScalarProperty Name="C_Расположение" ColumnName=" Расположение" />
+                <ScalarProperty Name="F7" ColumnName="F7" />
+                <ScalarProperty Name="F8" ColumnName="F8" />
+                <ScalarProperty Name="F9" ColumnName="F9" />
+                <ScalarProperty Name="F10" ColumnName="F10" />
+                <ScalarProperty Name="F11" ColumnName="F11" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Access_Networks">
+            <EntityTypeMapping TypeName="TeleconNevaModel.Access_Networks">
+              <MappingFragment StoreEntitySet="Access_Networks">
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный номер" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Количество_портов_" ColumnName="Количество портов " />
+                <ScalarProperty Name="Стандарт_передачи_данных_" ColumnName="Стандарт передачи данных " />
+                <ScalarProperty Name="Частота" ColumnName="Частота" />
+                <ScalarProperty Name="Интерфейсы" ColumnName="Интерфейсы" />
+                <ScalarProperty Name="Скорость_передачи_данных" ColumnName="Скорость передачи данных" />
+                <ScalarProperty Name="Место_расположения" ColumnName="Место расположения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suds_Equipment">
+            <EntityTypeMapping TypeName="TeleconNevaModel.Suds_Equipment">
+              <MappingFragment StoreEntitySet="Suds_Equipment">
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный номер" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Порты" ColumnName="Порты" />
+                <ScalarProperty Name="Стандарт_передачи" ColumnName="Стандарт передачи" />
+                <ScalarProperty Name="Скорость" ColumnName="Скорость" />
+                <ScalarProperty Name="Адрес_абонента" ColumnName="Адрес абонента" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
