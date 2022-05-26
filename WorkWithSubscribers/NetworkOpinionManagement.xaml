@@ -1,0 +1,17 @@
+﻿<Page x:Class="WorkWithSubscribers.NetworkOpinionManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WorkWithSubscribers"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NetworkOpinionManagement">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="20,0,20,150" TextWrapping="Wrap" Text="Управление сетевым оборудованием" VerticalAlignment="Center" FontSize="40" TextAlignment="Center"/>
+        <Button Content="Контроль состояния" HorizontalAlignment="Center" Margin="20,0,20,0" VerticalAlignment="Center" FontSize="20" Width="420" Click="Control_ButtonClick"/>
+        <Button Content="Настроить оборудование" HorizontalAlignment="Center" Margin="20,100,20,0" VerticalAlignment="Center" FontSize="20" Width="420" Click="Equipment_ButtonClick"/>
+        <Button Content="Расчитать количество базовых станций" HorizontalAlignment="Center" Margin="20,200,20,0" VerticalAlignment="Center" FontSize="20" Width="420" Click="BaseStation_ButtonClick"/>
+    </Grid>
+</Page>
