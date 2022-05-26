@@ -1,0 +1,19 @@
+﻿<Window x:Class="TeleconNevaCommunication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeleconNevaCommunication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Resources/LogoTNS.jpg" HorizontalAlignment="Right"/>
+        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered"/>
+        <TextBlock Text="Телеком Нева Связь" FontSize="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,0,0,0"/>
+    </Grid>
+</Window>
